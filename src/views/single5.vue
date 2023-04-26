@@ -2,6 +2,7 @@
   <div>
     <header class="header">
       <div class="header_container">
+        <div class="heading">  VideoVerse</div>
         <div class="none"> </div>
         <div class="search">
           <input type="text" placeholder="Search">
@@ -27,13 +28,13 @@
       <nav class="nav_container">
         <div>
           <div class="img">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnkXcvlHhC-kjtdmdFGVsdUVrzpwwMHw5Y6A&usqp=CAU"
-                        alt="">
-                </div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnkXcvlHhC-kjtdmdFGVsdUVrzpwwMHw5Y6A&usqp=CAU"
+              alt="">
+          </div>
 
           <div class="nav_list">
             <div class="nav_items navtop">
-              <a href="#" class="nav_link navtop active">
+              <a href="/main" class="nav_link navtop active">
                 <i class="fa fa-house nav_icon"></i>
                 <span class="nav_name">Home</span>
               </a>
@@ -57,66 +58,86 @@
                 <i class="fa-solid fa-clock-rotate-left nav_icon"></i>
                 <span class="nav_name">History</span>
               </a>
-              <a href="#" class="nav_link navtop">
+              <a href="/home1" class="nav_link navtop">
                 <i class="fa-solid fa-thumbs-up nav_icon"></i>
-                <span class="nav_name">Like</span>
+                <span class="nav_name">Logout</span>
               </a>
 
-              <div class="nav_dropdown">
-                <a href="#" class="nav_link">
-                  <i class="fa-solid fa-chevron-down nav_icon"></i>
-                  <span class="nav_name">Show More</span>
-                </a>
 
-                <div class="nav_dropdown-collapse">
-                  <div class="nav_dropdown-content">
-                    <a href="#" class="nav_dropdown-item">Grid Box</a>
-                    <a href="#" class="nav_dropdown-item">Frontend Design</a>
-                    <a href="#" class="nav_dropdown-item">Backend Design</a>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
       </nav>
     </section>
-    <section class="video_content grid">
-      <div class="video_items" v-for="(item, index) in videoItems" :key="index">
-        <video controls>
-          <source
-            src="https://firebasestorage.googleapis.com/v0/b/videoverse-61929.appspot.com/o/video1.mp4?alt=media&token=dbf85d0d-379a-42df-92b7-8e4be86d5c70"
-            type="video/mp4">
-        </video>
-        <div class="details flex">
-          <div class="img">
-            <img :src="item.channelLogo" alt="">
+    <div style="display: flex;">
+      <section class="video_content grid">
+        <div class="video_items" v-for="(item, index) in videoItems" :key="index">
+          <video controls>
+            <source
+              src="https://firebasestorage.googleapis.com/v0/b/videoverse-61929.appspot.com/o/video5.mp4?alt=media&token=dbf85d0d-379a-42df-92b7-8e4be86d5c70"
+              type="video/mp4">
+          </video>
+          <div class="details flex">
+            <div class="img">
+              <img :src="item.channelLogo" alt="">
+            </div>
+            <div class="heading">
+              <p>NATURE</p>
+              <span>CHANNEL NAME <i class="fa fa-circle-check"></i></span>
+              <span>15M Subscribers</span>
+              <hr>
+              <h5>Video Description </h5>
+              <h5>Video Disclaimer</h5>
+              <span class="heading1">53.5M Subscribers </span>
+            </div>
           </div>
-          <div class="heading">
-            <p>NATURE</p>
-            <span>CHANNEL NAME <i class="fa fa-circle-check"></i></span>
-            <span>53.5M </span>
+        </div>
+      </section>
+
+      <section>
+        <div class="heading">
+          Recommended Videos
+        </div>
+        <div v-for="(item, index) in videoItems1" :key="index">
+          <a :href="item.link">
+            <img :src="item.image" alt="">
+          </a>
+
+          <div class="details flex">
+
+            <div class="">
+              <p>{{ item.title }}</p>
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <hr>
+    <div class="details_Comment">
+      <div class="heading">Comments 99+</div>
+<hr>
+      <div v-for="(items, index) in commentItems" :key="index">
+        <div class="heading1">
+          <h4>{{ items.commentAuthorName }} <span>{{ items.date }}</span></h4>
+          <p>{{ items.comment }}</p>
+          <div class="comment-like flex">
+            <div class="icon" @click="likeComment">
+              <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+              <label>{{ items.likes }}</label>
+            </div>
+            <div class="icon" @click="dislikeComment">
+              <i class="fa fa-thumbs-down"></i>
+              <label>{{ items.dislikes }}</label>
+            </div>
+            <div class="icon" @click="replyComment">
+              <label>REPLY</label>
+            </div>
           </div>
         </div>
       </div>
-    </section>
-    <section class="video_content grid">
-      <div class="video_items" v-for="(item, index) in videoRecommend" :key="index">
-        <a :href="item.link">
-          <img :src="item.image" alt="">
-        </a>
-        <div class="details flex">
-          <div class="img">
-            <img :src="item.channelLogo" alt="">
-          </div>
-          <div class="heading">
-            <p>{{ item.title }}</p>
-            <span>{{ item.channelName }} <i class="fa fa-circle-check"></i></span>
-            <span>{{ item.views }} {{ item.time }}</span>
-          </div>
-        </div>
-      </div>
-    </section>
+
+    </div>
   </div>
 </template>
 <script>
@@ -127,7 +148,6 @@ export default {
     return {
       videoItems: [
         {
-          link: 'single-page.html',
           image: back5,
           channelLogo: "https://img.icons8.com/external-victoruler-flat-victoruler/64/000000/external-boy-people-victoruler-flat-victoruler-5.png",
           title: 'Sample Video',
@@ -137,73 +157,108 @@ export default {
         },
 
       ],
-      videoRecommend: [
+      videoItems1: [
+        {
+          link: "/single2",
+          image: back5,
+          channelLogo: "https://img.icons8.com/external-victoruler-flat-victoruler/64/000000/external-boy-people-victoruler-flat-victoruler-5.png",
+          title: 'Sample Video',
+          channelName: 'Channel Name',
+          views: '56.7M',
+          time: '.1 Week ago'
+        },
+        {
+          link: "/single1",
+          image: back5,
+          channelLogo: "https://img.icons8.com/external-victoruler-flat-victoruler/64/000000/external-boy-people-victoruler-flat-victoruler-5.png",
+          title: 'Sample Video',
+          channelName: 'Channel Name',
+          views: '56.7M',
+          time: '.1 Week ago'
+        },
+        {
+          link: "/single3",
+          image: back5,
+          channelLogo: "https://img.icons8.com/external-victoruler-flat-victoruler/64/000000/external-boy-people-victoruler-flat-victoruler-5.png",
+          title: 'Sample Video',
+          channelName: 'Channel Name',
+          views: '56.7M',
+          time: '.1 Week ago'
+        },
+        {
+          link: "/single4",
+          image: back5,
+          channelLogo: "https://img.icons8.com/external-victoruler-flat-victoruler/64/000000/external-boy-people-victoruler-flat-victoruler-5.png",
+          title: 'Sample Video',
+          channelName: 'Channel Name',
+          views: '56.7M',
+          time: '.1 Week ago'
+        },
+      ],
+      commentItems: [
+        {
+          comment: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi dolorum vitae asperiores ipsam obcaecati, laborum odio? Nulla quos sed nobis voluptatem repudiandae impedit, possimus velit sint hic ab aut dolore.',
+          commentAuthor: 'Sample Author',
+          commentAuthorName: 'Sample Name',
 
-        {
-          link: 'single-page4.vue',
-          image: back5,
-          channelLogo: "https://img.icons8.com/external-victoruler-flat-victoruler/64/000000/external-boy-people-victoruler-flat-victoruler-5.png",
-          title: 'Sample Video',
-          channelName: 'Channel Name',
-          views: '56.7M',
-          time: '.1 Week ago'
+        }, {
+          comment: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi dolorum vitae asperiores ipsam obcaecati, laborum odio? Nulla quos sed nobis voluptatem repudiandae impedit, possimus velit sint hic ab aut dolore.',
+          commentAuthor: 'Sample Author',
+          commentAuthorName: 'Sample Name',
+
+        }, {
+          comment: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi dolorum vitae asperiores ipsam obcaecati, laborum odio? Nulla quos sed nobis voluptatem repudiandae impedit, possimus velit sint hic ab aut dolore.',
+          commentAuthor: 'Sample Author',
+          commentAuthorName: 'Sample Name',
+
+        }, {
+          comment: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi dolorum vitae asperiores ipsam obcaecati, laborum odio? Nulla quos sed nobis voluptatem repudiandae impedit, possimus velit sint hic ab aut dolore.',
+          commentAuthor: 'Sample Author',
+          commentAuthorName: 'Sample Name',
+
+        }, {
+          comment: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi dolorum vitae asperiores ipsam obcaecati, laborum odio? Nulla quos sed nobis voluptatem repudiandae impedit, possimus velit sint hic ab aut dolore.',
+          commentAuthor: 'Sample Author',
+          commentAuthorName: 'Sample Name',
+
+        }, {
+          comment: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi dolorum vitae asperiores ipsam obcaecati, laborum odio? Nulla quos sed nobis voluptatem repudiandae impedit, possimus velit sint hic ab aut dolore.',
+          commentAuthor: 'Sample Author',
+          commentAuthorName: 'Sample Name',
+
+        }
+      ],
+      props: {
+        user: {
+          type: String,
+          required: true,
         },
-        {
-          link: 'single-page2.html',
-          image: back5,
-          channelLogo: "https://img.icons8.com/external-victoruler-flat-victoruler/64/000000/external-boy-people-victoruler-flat-victoruler-5.png",
-          title: 'Sample Video',
-          channelName: 'Channel Name',
-          views: '56.7M',
-          time: '.1 Week ago'
+        date: {
+          type: String,
+          required: true,
         },
-        {
-          link: 'single-page.html',
-          image: back5,
-          channelLogo: "https://img.icons8.com/external-victoruler-flat-victoruler/64/000000/external-boy-people-victoruler-flat-victoruler-5.png",
-          title: 'Sample Video',
-          channelName: 'Channel Name',
-          views: '56.7M',
-          time: '.1 Week ago'
+        comment: {
+          type: String,
+          required: true,
         },
-        {
-          link: 'single-page4.html',
-          image: back5,
-          channelLogo: "https://img.icons8.com/external-victoruler-flat-victoruler/64/000000/external-boy-people-victoruler-flat-victoruler-5.png",
-          title: 'Sample Video',
-          channelName: 'Channel Name',
-          views: '56.7M',
-          time: '.1 Week ago'
+        likes: {
+          type: Number,
+          required: true,
         },
-        {
-          link: 'single-page2.html',
-          image: back5,
-          channelLogo: "https://img.icons8.com/external-victoruler-flat-victoruler/64/000000/external-boy-people-victoruler-flat-victoruler-5.png",
-          title: 'Sample Video',
-          channelName: 'Channel Name',
-          views: '56.7M',
-          time: '.1 Week ago'
+        dislikes: {
+          type: Number,
+          required: true,
         },
-        {
-          link: 'single-page.html',
-          image: back5,
-          channelLogo: "https://img.icons8.com/external-victoruler-flat-victoruler/64/000000/external-boy-people-victoruler-flat-victoruler-5.png",
-          title: 'Sample Video',
-          channelName: 'Channel Name',
-          views: '56.7M',
-          time: '.1 Week ago'
+      },
+      methods: {
+        likeComment() {
+          this.likes += 1;
         },
-        {
-          link: 'single-page4.html',
-          image: back5,
-          channelLogo: "https://img.icons8.com/external-victoruler-flat-victoruler/64/000000/external-boy-people-victoruler-flat-victoruler-5.png",
-          title: 'Sample Video',
-          channelName: 'Channel Name',
-          views: '56.7M',
-          time: '.1 Week ago'
+        dislikeComment() {
+          this.dislikes += 1;
         },
 
-      ]
+      },
     }
   }
 }
@@ -237,6 +292,18 @@ a {
 img {
   max-width: 100%;
   height: auto;
+}
+
+.heading1 {
+  font-size: 15px;
+  color: #ffffff;
+}
+
+.heading {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+
 }
 
 span,
@@ -464,8 +531,8 @@ header .toggle {
 /*--------------nav------------*/
 /*--------------video_items------------*/
 .video_items video {
-  width: 900px;
-  
+  width: 1070px;
+
 }
 
 .video_items a img {
