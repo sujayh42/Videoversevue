@@ -2,7 +2,7 @@
     <div>
         <header class="header">
             <div class="header_container">
-                <div class="name">VideoVerse</div>
+                <div class="heading">VideoVerse</div>
                 <div class="none"> </div>
                 <div class="search">
                     <input type="text" placeholder="Search">
@@ -35,7 +35,7 @@
 
           <div class="nav_list">
             <div class="nav_items navtop">
-              <a href="#" class="nav_link navtop active">
+              <a href="/main" class="nav_link navtop active">
                 <i class="fa fa-house nav_icon"></i>
                 <span class="nav_name">Home</span>
               </a>
@@ -59,9 +59,9 @@
                 <i class="fa-solid fa-clock-rotate-left nav_icon"></i>
                 <span class="nav_name">History</span>
               </a>
-              <a href="#" class="nav_link navtop">
+              <a href="/home1" class="nav_link navtop">
                 <i class="fa-solid fa-thumbs-up nav_icon"></i>
-                <span class="nav_name">Like</span>
+                <span class="nav_name">Logout</span>
               </a>
 
               
@@ -113,7 +113,34 @@ export default {
                     time: '.1 Week ago'
                 },
                 {
-                    link: '/single1',
+                    link: '/single2',
+                    image: back5,
+                    channelLogo: "https://img.icons8.com/external-victoruler-flat-victoruler/64/000000/external-boy-people-victoruler-flat-victoruler-5.png",
+                    title: 'Sample Video',
+                    channelName: 'Channel Name',
+                    views: '56.7M',
+                    time: '.1 Week ago'
+                },
+                {
+                    link: "/single3",
+                    image: back5,
+                    channelLogo: "https://img.icons8.com/external-victoruler-flat-victoruler/64/000000/external-boy-people-victoruler-flat-victoruler-5.png",
+                    title: 'Sample Video',
+                    channelName: 'Channel Name',
+                    views: '56.7M',
+                    time: '.1 Week ago'
+                },
+                {
+                    link: "/single4",
+                    image: back5,
+                    channelLogo: "https://img.icons8.com/external-victoruler-flat-victoruler/64/000000/external-boy-people-victoruler-flat-victoruler-5.png",
+                    title: 'Sample Video',
+                    channelName: 'Channel Name',
+                    views: '56.7M',
+                    time: '.1 Week ago'
+                },
+                {
+                    link: "/single5",
                     image: back5,
                     channelLogo: "https://img.icons8.com/external-victoruler-flat-victoruler/64/000000/external-boy-people-victoruler-flat-victoruler-5.png",
                     title: 'Sample Video',
@@ -131,7 +158,7 @@ export default {
                     time: '.1 Week ago'
                 },
                 {
-                    link: "/single1",
+                    link: "/single2",
                     image: back5,
                     channelLogo: "https://img.icons8.com/external-victoruler-flat-victoruler/64/000000/external-boy-people-victoruler-flat-victoruler-5.png",
                     title: 'Sample Video',
@@ -140,7 +167,7 @@ export default {
                     time: '.1 Week ago'
                 },
                 {
-                    link: "/single1",
+                    link: "/single2",
                     image: back5,
                     channelLogo: "https://img.icons8.com/external-victoruler-flat-victoruler/64/000000/external-boy-people-victoruler-flat-victoruler-5.png",
                     title: 'Sample Video',
@@ -149,7 +176,7 @@ export default {
                     time: '.1 Week ago'
                 },
                 {
-                    link: "/single1",
+                    link: "/single3",
                     image: back5,
                     channelLogo: "https://img.icons8.com/external-victoruler-flat-victoruler/64/000000/external-boy-people-victoruler-flat-victoruler-5.png",
                     title: 'Sample Video',
@@ -158,7 +185,7 @@ export default {
                     time: '.1 Week ago'
                 },
                 {
-                    link: "/single1",
+                    link: "/single4",
                     image: back5,
                     channelLogo: "https://img.icons8.com/external-victoruler-flat-victoruler/64/000000/external-boy-people-victoruler-flat-victoruler-5.png",
                     title: 'Sample Video',
@@ -167,34 +194,7 @@ export default {
                     time: '.1 Week ago'
                 },
                 {
-                    link: "/single1",
-                    image: back5,
-                    channelLogo: "https://img.icons8.com/external-victoruler-flat-victoruler/64/000000/external-boy-people-victoruler-flat-victoruler-5.png",
-                    title: 'Sample Video',
-                    channelName: 'Channel Name',
-                    views: '56.7M',
-                    time: '.1 Week ago'
-                },
-                {
-                    link: "/single1",
-                    image: back5,
-                    channelLogo: "https://img.icons8.com/external-victoruler-flat-victoruler/64/000000/external-boy-people-victoruler-flat-victoruler-5.png",
-                    title: 'Sample Video',
-                    channelName: 'Channel Name',
-                    views: '56.7M',
-                    time: '.1 Week ago'
-                },
-                {
-                    link: "/single1",
-                    image: back5,
-                    channelLogo: "https://img.icons8.com/external-victoruler-flat-victoruler/64/000000/external-boy-people-victoruler-flat-victoruler-5.png",
-                    title: 'Sample Video',
-                    channelName: 'Channel Name',
-                    views: '56.7M',
-                    time: '.1 Week ago'
-                },
-                {
-                    link: "/single1",
+                    link: "/single5",
                     image: back5,
                     channelLogo: "https://img.icons8.com/external-victoruler-flat-victoruler/64/000000/external-boy-people-victoruler-flat-victoruler-5.png",
                     title: 'Sample Video',
@@ -322,6 +322,7 @@ header .toggle {
 
 /*-------------------header------------*/
 /*--------------nav------------*/
+
 .nav {
     position: fixed;
     top: 0;
@@ -406,77 +407,6 @@ header .toggle {
     color: #a5a1aa;
 }
 
-/*----------nav_dropdown  */
-.nav_dropdown {
-    overflow: hidden;
-    max-height: 21px;
-    transition: 0.5s;
-}
-
-.nav_dropdown-collapse {
-    background-color: #232323;
-    border-radius: 4px;
-    margin-top: 16px;
-}
-
-.nav_dropdown-content {
-    display: grid;
-    row-gap: 8px;
-    padding: 10px;
-}
-
-.nav_dropdown-item {
-    font-size: 12px;
-    font-weight: 500;
-    color: #fff;
-}
-
-.nav_dropdown-item:hover {
-    color: #ff0000;
-}
-
-.nav_dropdown-icon {
-    margin-left: auto;
-    transition: 0.5s;
-}
-
-.nav_dropdown:hover {
-    min-height: 100rem;
-}
-
-.subscribe {
-    width: 40px;
-    height: 40px;
-    border: 2px solid #fff;
-    border-radius: 50%;
-    margin-right: 10px;
-    padding: 5px;
-}
-
-.nav_dropdown-items,
-.nav_dropdown-second {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.navtop .nav_link:nth-child(4) {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 20px;
-}
-
-.subscribe-container {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 20px;
-}
-
-.show-menu {
-    left: 0;
-}
-
-.active {
-    color: #ff0000;
-}
 
 /*----------nav_dropdown   */
 /*--------------nav------------*/
