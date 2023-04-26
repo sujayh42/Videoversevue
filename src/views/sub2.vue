@@ -35,7 +35,7 @@
 
                     <div class="nav_list">
                         <div class="nav_items navtop">
-                            <a href="#" class="nav_link navtop active">
+                            <a href="/main" class="nav_link navtop active">
                                 <i class="fa fa-house nav_icon"></i>
                                 <span class="nav_name">Home</span>
                             </a>
@@ -59,25 +59,12 @@
                                 <i class="fa-solid fa-clock-rotate-left nav_icon"></i>
                                 <span class="nav_name">History</span>
                             </a>
-                            <a href="#" class="nav_link navtop">
+                            <a href="/home1" class="nav_link navtop">
                                 <i class="fa-solid fa-thumbs-up nav_icon"></i>
-                                <span class="nav_name">Like</span>
+                                <span class="nav_name">Logout</span>
                             </a>
 
-                            <div class="nav_dropdown">
-                                <a href="#" class="nav_link">
-                                    <i class="fa-solid fa-chevron-down nav_icon"></i>
-                                    <span class="nav_name">Show More</span>
-                                </a>
 
-                                <div class="nav_dropdown-collapse">
-                                    <div class="nav_dropdown-content">
-                                        <a href="#" class="nav_dropdown-item">Grid Box</a>
-                                        <a href="#" class="nav_dropdown-item">Frontend Design</a>
-                                        <a href="#" class="nav_dropdown-item">Backend Design</a>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -95,18 +82,23 @@
                     <div class="heading">
                         <p>{{ item.title }}</p>
                         <div>
-                    <h5>{{ videoItems.title }}</h5>
-                    <p>{{ videoItems.views }} subscribers</p>
-                </div>
+                            <h6>{{ videoItems.title }}</h6>
+                            60 M subscribers
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-        
+
     </div>
 </template>
 <script>
-import channelLogo from './images/channel_logo/img1.jpg'
+import channelLogo from './images/channel_logo/img11.jpg'
+import channelLogo1 from './images/channel_logo/img12.jpg'
+import channelLogo2 from './images/channel_logo/img13.jpg'
+import channelLogo3 from './images/channel_logo/img14.jpg'
+import channelLogo4 from './images/channel_logo/img15.jpg'
+
 import Single1 from './single1.vue'
 export default {
     name: 'VideoContent',
@@ -118,69 +110,47 @@ export default {
             videoItems: [
                 {
                     link: ' /single1',
-                    image: channelLogo,
+                    image: channelLogo2,
                     channelLogo: "https://img.icons8.com/external-victoruler-flat-victoruler/64/000000/external-boy-people-victoruler-flat-victoruler-5.png",
-                    title: 'Channel Name',
-                    views: '56.7M',
+                    title: 'Mrinank Misal',
                     
+
                 },
                 {
                     link: '/single1',
-                    image: channelLogo,
+                    image: channelLogo1,
                     channelLogo: "https://img.icons8.com/external-victoruler-flat-victoruler/64/000000/external-boy-people-victoruler-flat-victoruler-5.png",
-                    title: 'Channel Name',
-                    views: '56.7M',
+                    title: 'Padmanabh Mishra',
                     
+
+                },
+                {
+                    link: "/single1",
+                    image: channelLogo4,
+                    channelLogo: "https://img.icons8.com/external-victoruler-flat-victoruler/64/000000/external-boy-people-victoruler-flat-victoruler-5.png",
+                    title: 'Sujay Hage',
+                    
+
                 },
                 {
                     link: "/single1",
                     image: channelLogo,
                     channelLogo: "https://img.icons8.com/external-victoruler-flat-victoruler/64/000000/external-boy-people-victoruler-flat-victoruler-5.png",
-                    title: 'Channel Name',
-                    views: '56.7M',
+                    title: 'Param Mehta',
                     
+
                 },
 
                 {
                     link: "/single1",
-                    image: channelLogo,
+                    image: channelLogo3,
                     channelLogo: "https://img.icons8.com/external-victoruler-flat-victoruler/64/000000/external-boy-people-victoruler-flat-victoruler-5.png",
-                    title: 'Channel Name',
-                    views: '56.7M',
+                    title: 'Shaurya Deshmukh',
                     
+
                 },
-                {
-                    link: "/single1",
-                    image: channelLogo,
-                    channelLogo: "https://img.icons8.com/external-victoruler-flat-victoruler/64/000000/external-boy-people-victoruler-flat-victoruler-5.png",
-                    title: 'Channel Name',
-                    views: '56.7M',
-                    
-                },
-                {
-                    link: "/single1",
-                    image: channelLogo,
-                    channelLogo: "https://img.icons8.com/external-victoruler-flat-victoruler/64/000000/external-boy-people-victoruler-flat-victoruler-5.png",
-                    title: 'Channel Name',
-                    views: '56.7M',
-                    
-                },
-                {
-                    link: "/single1",
-                    image: channelLogo,
-                    channelLogo: "https://img.icons8.com/external-victoruler-flat-victoruler/64/000000/external-boy-people-victoruler-flat-victoruler-5.png",
-                    title: 'Channel Name',
-                    views: '56.7M',
-                    
-                },
-                {
-                    link: "/single1",
-                    image: channelLogo,
-                    channelLogo: "https://img.icons8.com/external-victoruler-flat-victoruler/64/000000/external-boy-people-victoruler-flat-victoruler-5.png",
-                    title: 'Channel Name',
-                    views: '56.7M',
-                    
-                }
+                
+                
             ]
         }
     }
@@ -461,7 +431,7 @@ header .toggle {
 
 .video_items a img {
     width: 295px;
-    height: 170px;
+    height: 295px;
     object-fit: cover;
 }
 
@@ -502,6 +472,7 @@ header .toggle {
 .flex {
     display: flex;
 }
+
 .channel {
     width: 300px;
     margin: 20px;
