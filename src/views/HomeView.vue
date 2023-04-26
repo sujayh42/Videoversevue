@@ -22,21 +22,24 @@
           </div>
         </div>
       </header>
-  <div id="main">
+  
+      <div id="main">
     <div id="login">
-      <h1>Login to VideoVerse</h1>
-      <input type="text" name="username" v-model="input.username" placeholder="Username" />
-      <br>
-      <br>
-      <input type="password" name="password" v-model="input.password" placeholder="Password" />
-      <br>
-      <br>
-
-
-      <button type="button"><a href="/main">Login </a></button>
+      <h2>Login to VideoVerse</h2>
+      <form @submit.prevent="submitForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" v-model="username">
+        <br>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" v-model="password">
+        <br>
+        <button type="submit">Login</button>
+      </form>
+      <p v-if="errorMessage">{{ errorMessage }}</p>
     </div>
   </div>
-  <footer class="footer ">
+  <footer class="er ">
         <div class="header_container">
           <div class="none"> </div>
           
@@ -52,26 +55,22 @@
 
 <script>
 export default {
-  name: 'Login',
   data() {
     return {
-      input: {
-        username: "",
-        password: ""
-      }
+      username: '',
+      password: '',
+      errorMessage: ''
     }
   },
   methods: {
-    login() {
-      if (this.input.username != "" && this.input.password != "") {
-        if (this.input.username == this.$parent.mockAccount.username && this.input.password == this.$parent.mockAccount.password) {
-          this.$emit("authenticated", true);
-          this.$router.replace({ name: "secure" });
-        } else {
-          console.log("The username and / or password is incorrect");
-        }
+    submitForm() {
+     
+      if (this.username === 'sit' && this.password === 'lhbc') {
+        
+        this.$router.push('/main')
       } else {
-        console.log("A username and password must be present");
+        
+        this.errorMessage = 'Invalid username or password'
       }
     }
   }
@@ -110,13 +109,14 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 56px;
+    height: 60px;
   }
   .footer {
     position: fixed;
     top: 0;
     left: 0;
-    width: 10%;
+    height: auto;
+    width: 100%;
     background-color: #232323;
     box-shadow: 0 1px 0 rgba(22, 8, 43, 0.1);
   }
@@ -125,6 +125,6 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 56px;
+    height: 60px;
   }
 </style>  
